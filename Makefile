@@ -15,6 +15,7 @@ NAME = Talos
 ARTIFACTS := _out
 TOOLS ?= ghcr.io/siderolabs/tools:v1.5.0-1-g4d58a1b
 PKGS ?= v1.5.0-9-g7f9d6eb
+PKG_KERNEL ?= ghcr.io/siderolabs/kernel:$(PKGS)
 EXTRAS ?= v1.5.0-1-g9d5f16f
 # renovate: datasource=github-tags depName=golang/go
 GO_VERSION ?= 1.20
@@ -106,6 +107,7 @@ COMMON_ARGS += --platform=$(PLATFORM)
 COMMON_ARGS += --push=$(PUSH)
 COMMON_ARGS += --build-arg=TOOLS=$(TOOLS)
 COMMON_ARGS += --build-arg=PKGS=$(PKGS)
+COMMON_ARGS += --build-arg=PKG_KERNEL=$(PKG_KERNEL)
 COMMON_ARGS += --build-arg=EXTRAS=$(EXTRAS)
 COMMON_ARGS += --build-arg=GOFUMPT_VERSION=$(GOFUMPT_VERSION)
 COMMON_ARGS += --build-arg=GOIMPORTS_VERSION=$(GOIMPORTS_VERSION)
