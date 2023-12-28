@@ -1,5 +1,5 @@
 REGISTRY ?= ghcr.io
-USERNAME ?= siderolabs
+USERNAME ?= hackworthltd
 SHA ?= $(shell git describe --match=none --always --abbrev=8 --dirty)
 TAG ?= $(shell git describe --tag --always --dirty --match v[0-9]\*)
 ABBREV_TAG ?= $(shell git describe --tag --always --match v[0-9]\* --abbrev=0 )
@@ -17,7 +17,8 @@ CLOUD_IMAGES_EXTRA_ARGS ?= ""
 ARTIFACTS := _out
 TOOLS ?= ghcr.io/siderolabs/tools:v1.6.0-1-g336d248
 PKGS ?= v1.6.0-9-g8fa73db
-PKG_KERNEL ?= ghcr.io/siderolabs/kernel:$(PKGS)
+KERNEL_PKGS ?= v1.6.0-10-g1e7f7f7
+PKG_KERNEL ?= ghcr.io/$(USERNAME)/kernel:$(KERNEL_PKGS)
 EXTRAS ?= v1.6.0-1-g113887a
 # renovate: datasource=github-tags depName=golang/go
 GO_VERSION ?= 1.21
